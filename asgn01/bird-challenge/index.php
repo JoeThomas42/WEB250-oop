@@ -5,11 +5,11 @@ class Bird {
     public $food = "bugs";
     public $nestPlacement = "tree";
     public $conservationLevel;
-    private $song;
-    private $canFly;
+    public $song;
+    public $canFly;
 
-    // Constructor to initialize properties including song and canFly
-    public function __construct($commonName, $food, $nestPlacement, $conservationLevel, $song, $canFly) {
+    // Constructor
+    function __construct($commonName, $food, $nestPlacement, $conservationLevel, $song, $canFly) {
         $this->commonName = $commonName;
         $this->food = $food;
         $this->nestPlacement = $nestPlacement;
@@ -18,26 +18,23 @@ class Bird {
         $this->canFly = $canFly;
     }
 
-    // Method to return the bird's song
-    public function song() {
+    function song() {
         return $this->song;
     }
 
-    // Method to return the bird's flight ability
-    public function canFly() {
+    function canFly() {
         return $this->canFly;
     }
 
-    // Method to display bird information
-    public function displayInfo() {
-        echo "Common Name: " . $this->commonName . "<br>";
-        echo "Food: " . $this->food . "<br>";
-        echo "Nest Placement: " . $this->nestPlacement . "<br>";
-        echo "Conservation Level: " . $this->conservationLevel . "<br>";
+    function displayInfo() {
+        echo "<strong>Common Name:</strong> " . $this->commonName . "<br>";
+        echo "<strong>Food:</strong> " . $this->food . "<br>";
+        echo "<strong>Nest Placement:</strong> " . $this->nestPlacement . "<br>";
+        echo "<strong>Conservation Level:</strong> " . $this->conservationLevel . "<br>";
     }
 }
 
-// New Instance
+// New Instances
 $bird1 = new Bird(
     "Eastern Towhee", 
     "seeds, fruits, insects, spiders", 
@@ -47,11 +44,20 @@ $bird1 = new Bird(
     "This bird can fly"
 );
 
+$bird2 = new Bird(
+    "Indigo Bunting", 
+    "seeds, berries, insects, bugs", 
+    "roadsides, railroad right-of-wafields, edges of woods", 
+    "Low", 
+    "whatwhat!", 
+    "This bird can fly"
+);
+
 // Display information
 $bird1->displayInfo();
+echo "<strong>Song:</strong> " . $bird1->song() . "<br>";
+echo "<strong>Can Fly:</strong> " . $bird1->canFly() . "<br><br>";
 
-// Display song and flight ability
-echo "Song: " . $bird1->song() . "<br>";
-echo "Can Fly: " . $bird1->canFly() . "<br>";
-
-?>
+$bird2->displayInfo();
+echo "<strong>Song:</strong> " . $bird2->song() . "<br>";
+echo "<strong>Can Fly:</strong> " . $bird2->canFly() . "<br><br>";
