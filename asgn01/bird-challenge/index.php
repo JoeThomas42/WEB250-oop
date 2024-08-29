@@ -1,6 +1,5 @@
 <?php
 
-
 class Bird {
     public $commonName;
     public $food = "bugs";
