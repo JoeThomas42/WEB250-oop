@@ -33,14 +33,14 @@ class Bicycle {
 
 // New instances
 $trek = new Bicycle(
-    "Trek",
-    "Emonda",
-    "2017",
-    1.0
+  "Trek",
+  "Emonda",
+  "2017",
+  1.0
 );
 
 $cd = new Bicycle(
-    "Cannondale",
+  "Cannondale",
 	"Synapse",
 	"2016",
 	8.0
