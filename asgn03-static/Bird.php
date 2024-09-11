@@ -1,12 +1,12 @@
 <?php
 
 class Bird {
-    protected $habitat;
-    protected $food;
-    protected $nesting = "tree";
-    protected $conservation;
-    protected $song = "chirp";
-    protected $flying = "yes";
+    public $habitat;
+    public $food;
+    public $nesting = "tree";
+    public $conservation;
+    public $song = "chirp";
+    public $flying = "yes";
 
     public static $instanceCount = 0;
     public static $eggNum = 0;
@@ -21,17 +21,18 @@ class Bird {
 
     public function canFly() {
         return $this->flying == "yes" ? "can fly" : "is stuck on the ground";
+    }
 }
 
 class YellowBelliedFlyCatcher extends Bird {
     public $name = "yellow-bellied flycatcher";
     public $diet = "mostly insects.";
-    protected $song = "flat chilk";
+    public $song = "flat chilk";
     public static $eggNum = "3-4, sometimes 5";
 }
 
 class Kiwi extends Bird {
     public $name = "kiwi";
     public $diet = "omnivorous";
-    protected $flying = "no";
+    public $flying = "no";
 }
