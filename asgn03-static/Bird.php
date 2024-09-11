@@ -20,13 +20,7 @@ class Bird {
     }
 
     public function canFly() {
-        if ( $this->flying == "yes" ) {
-            $flyingString = "can fly";
-        } else {
-            $flyingString = "is stuck on the ground";
-        }
-        return  $flyingString ;
-    }
+        return $this->flying == "yes" ? "can fly" : "is stuck on the ground";
 }
 
 class YellowBelliedFlyCatcher extends Bird {
