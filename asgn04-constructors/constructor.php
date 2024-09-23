@@ -4,14 +4,14 @@ class Bird {
   public $commonName;
   public $latinName;
 
-  function __construct($commonName, $latinName) {
+  public function __construct($commonName, $latinName) {
     $this->commonName = $commonName;
     $this->latinName = $latinName;
   }
 
-  function display() {
-    echo "Common name: " . $this->commonName . "<br>";
-    echo "Latin name: " . $this->latinName . "<br>";
+  public function display() {
+    echo "Common name: {$this->commonName}<br>";
+    echo "Latin name: {$this->latinName}<br>";
   }
 }
 
