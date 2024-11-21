@@ -2,7 +2,9 @@
 
   ob_start(); // turn on output buffering
 
-  // session_start(); // turn on sessions if needed
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
 
   // Assign file paths to PHP constants
   // __FILE__ returns the current path to this file
