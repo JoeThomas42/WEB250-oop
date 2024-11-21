@@ -12,12 +12,14 @@ if (!isset($pageTitle)) {
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($pageTitle); ?></title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- You can add more meta tags or links to scripts here -->
 </head>
 <body>
     <header>
         <h1><?php echo htmlspecialchars($pageTitle); ?></h1>
         <nav>
             <a href="index.php">Home</a>
+            <!-- Add more navigation links if needed -->
         </nav>
     </header>
     <main>
