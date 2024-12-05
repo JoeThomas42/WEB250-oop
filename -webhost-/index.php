@@ -8,7 +8,7 @@ include 'includes/header.php';
     <h2>Assignments</h2>
     <ul class="assignment-list">
         <?php
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 11; $i++) {
             $assignment = 'asgn' . str_pad($i, 2, '0', STR_PAD_LEFT);
             echo "<li><a href=\"{$assignment}.php\">Assignment {$i}</a></li>";
         }
