@@ -1,4 +1,8 @@
 <?php
+  ini_set('display_errors', 1); // Enable error display
+  ini_set('display_startup_errors', 1); // Display startup errors
+  error_reporting(E_ALL); // Report all PHP errors
+
   ob_start(); // turn on output buffering
 
   define("PRIVATE_PATH", dirname(__FILE__));

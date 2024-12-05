@@ -6,6 +6,7 @@ class DatabaseObject {
   static protected $table_name = "";
   static protected $columns = [];
   public $errors = [];
+  public $id;
 
   static public function set_database($database) {
     self::$database = $database;
@@ -121,7 +122,7 @@ class DatabaseObject {
 
   public function attributes() {
     $attributes = [];
-    foreach(static::$db_columns as $column) {
+    foreach(static::$columns as $column) {
       if ($column === 'id') { continue; }
       $attributes[$column] = $this->$column;
     }
