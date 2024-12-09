@@ -1,15 +1,16 @@
 <?php
 
 require_once('../../private/initialize.php');
+
 require_login();
 
 if(!isset($_GET['id'])) {
-  redirect_to(url_for('./birds/index.php'));
+  redirect_to(url_for('/birds/birds.php'));
 }
 $id = $_GET['id'];
 $bird = Bird::find_by_id($id);
-if ($bird == false) {
-  redirect_to(url_for('./birds/index.php'));
+if($bird == false) {
+  redirect_to(url_for('/birds/birds.php'));
 }
 
 if(is_post_request()) {
@@ -21,37 +22,47 @@ if(is_post_request()) {
 
   if($result === true) {
     $_SESSION['message'] = 'The bird was updated successfully.';
-    redirect_to(url_for('./birds/show.php?id=' . $id));
+    redirect_to(url_for('/birds/show.php?id=' . $id));
   } else {
     // show errors
+    
   }
 
 } else {
+
   // display the form
+
 }
 
 ?>
 
-<?php $page_title = 'Edit Bicycle'; ?>
+<?php $page_title = 'Edit Bird'; ?>
+<?php include(SHARED_PATH . '/member_header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('./birds/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="birds.php">&laquo; Back to List</a>
 
   <div class="bird edit">
     <h1>Edit Bird</h1>
 
     <?php echo display_errors($bird->errors); ?>
 
-    <form action="<?php echo url_for('./birds/edit.php?id=' . h(u($id))); ?>" method="post">
+    <form action="<?php echo url_for('/birds/edit.php?id=' . h(u($id))); ?>" method="post">
 
-      <?php include('form_fields.php'); ?>
       
+      <?php 
+      $conservation_options = Bird::getConservationOptions();
+      include('form_fields.php'); 
+      ?>
+
       <div id="operations">
-        <input type="submit" value="Edit Bird">
+        <input type="submit" value="Edit Bird" />
       </div>
     </form>
 
   </div>
 
 </div>
+
+<?php include(SHARED_PATH . '/public_footer.php'); ?>

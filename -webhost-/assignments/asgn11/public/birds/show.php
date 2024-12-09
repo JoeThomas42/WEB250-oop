@@ -1,8 +1,5 @@
-<?php 
-
-require_once('../../private/initialize.php');
-
-?>
+<?php require_once('../../private/initialize.php'); ?>
+<?php require_login(); ?>
 
 <?php
 
@@ -13,39 +10,36 @@ $bird = Bird::find_by_id($id);
 ?>
 
 <?php $page_title = 'Show Bird: ' . h($bird->name()); ?>
+<?php include(SHARED_PATH . '/member_header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo $session->is_logged_in() ? url_for('./birds/index.php') : url_for('/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/birds/birds.php'); ?>">&laquo; Back to List</a>
 
   <div class="bird show">
 
-    <h1>Bird: <?php echo h($bird->commonName); ?></h1>
+    <h1>Bird: <?php echo h($bird->name()); ?></h1>
 
     <div class="attributes">
       <dl>
-        <dt>Habitat:</dt>
-        <dd><?= h($bird->habitat); ?></dd>
+        <dt>Common Name</dt>
+        <dd><?php echo h($bird->common_name); ?></dd>
       </dl>
       <dl>
-        <dt>Food:</dt>
-        <dd><?= h($bird->food); ?></dd>
+        <dt>Habitat</dt>
+        <dd><?php echo h($bird->habitat); ?></dd>
       </dl>
       <dl>
-        <dt>Nest Placement:</dt>
-        <dd><?= h($bird->nestPlacement); ?></dd>
+        <dt>Food</dt>
+        <dd><?php echo h($bird->food); ?></dd>
       </dl>
       <dl>
-        <dt>Behavior:</dt>
-        <dd><?= h($bird->behavior); ?></dd>
+        <dt>Conservation</dt>
+        <dd><?php echo h($bird->conservation()); ?></dd>
       </dl>
       <dl>
-        <dt>Conservation:</dt>
-        <dd><?= h($bird->conservation()); ?></dd>
-      </dl>
-      <dl>
-        <dt>Backyard Tips:</dt>
-        <dd><?= h($bird->backyardTips); ?></dd>
+        <dt>Backyard Tips</dt>
+        <dd><?php echo h($bird->backyard_tips); ?></dd>
       </dl>
     </div>
 
